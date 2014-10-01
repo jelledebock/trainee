@@ -1,0 +1,17 @@
+<%= form_for(@baseactivity) do |f| %>
+  <% if @baseactivity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@baseactivity.errors.count, "error") %> prohibited this baseactivity from being saved:</h2>
+
+      <ul>
+      <% @baseactivity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

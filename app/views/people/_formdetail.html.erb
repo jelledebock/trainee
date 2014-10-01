@@ -1,0 +1,78 @@
+<%= form_for(@person) do |f| %>
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% @person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% @countries = ["America","Afghanistan","Albania","Algeria","Andorra","Angola","Antigua & Deps","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina","Burma","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Central African Rep","Chad","Chile","People's Republic of China","Republic of China","Colombia","Comoros","Democratic Republic of the Congo","Republic of the Congo","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic","Danzig","Denmark","Djibouti","Dominica","Dominican Republic","East Timor","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Fiji","Finland","France","Gabon","Gaza Strip","The Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Holy Roman Empire","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Republic of Ireland","Israel","Italy","Ivory Coast","Jamaica","Japan","Jonathanland","Jordan","Kazakhstan","Kenya","Kiribati","North Korea","South Korea","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mount Athos","Mozambique","Namibia","Nauru","Nepal","Newfoundland","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Ottoman Empire","Pakistan","Palau","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Prussia","Qatar","Romania","Rome","Russian Federation","Rwanda","St Kitts & Nevis","St Lucia","Saint Vincent & the","Grenadines","Samoa","San Marino","Sao Tome & Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","Spain","Sri Lanka","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Tajikistan","Tanzania","Thailand","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"]  %>
+
+  <div class="label">
+    <p>First name </p>
+  </div>
+  <div class="field">
+    <%= f.text_field :fName %>
+  </div>
+  <div class="label">
+    <p>Last name </p>
+  </div>
+  <div class="field">
+    <%= f.text_field :lName %>
+  </div>
+  <div class="label">
+  <p>Email address </p>
+  </div>
+  <div class="field">
+    <%= f.text_field :email %>
+  </div>
+  <div class="label">
+  <p>Gender (m=male, f=female) </p>
+  </div>
+  <div class="field">
+    <%= f.select(:gender,['m','f']) %>
+  </div>
+  <div class="label">
+    <p>Date of birth </p>
+  </div>
+  <div class="field">
+    <%= f.date_select(:birthdate, {start_year:1900,end_year:2013,order:[:day,:month,:year]} ) %>
+  </div>
+  <div class="label">
+  <p>Street</p>
+  </div>
+  <div class="field">
+    <%= f.text_field :street %>
+  </div>
+  <div class="label">
+    <p>Number</p>
+  </div>
+  <div class="field">
+    <%= f.number_field(:housenumber) %>
+  </div>
+  <div class="label">
+  <p>ZIP code </p>
+  </div>
+  <div class="field">
+    <%= f.number_field(:postalcode, in:0..99999) %>
+  </div>
+  <div class="label">
+  <p>City</p>
+  </div>
+  <div class="field">
+    <%= f.text_field :city %>
+  </div>
+  <div class="label">
+  <p>Country </p>
+  </div>
+  <div class="field">
+    <%= f.select(:country,@countries) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

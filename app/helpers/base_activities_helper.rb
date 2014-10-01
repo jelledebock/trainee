@@ -1,0 +1,2 @@
+module BaseActivitiesHelper
+end

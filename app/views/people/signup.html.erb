@@ -1,0 +1,13 @@
+<%if(session[:profile])%>
+<% @profile = session[:profile] %>
+<h1>Welcome to trainee</h1>
+<h2>Your info : </h2>
+<ul>
+	<li>email <%= @profile.getEmail %> </li>
+</ul>
+
+<%= render 'formdetail' %>
+<%else%>
+<p>Not allowed to be here!</p>
+<%= link_to 'Back', people_path %>
+<%end%>

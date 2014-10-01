@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Trainee" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+	<nav>
+	<ul id="navigationMenu">
+	    <li>
+		    <%= link_to({:controller => "activities", :action => "index"},class:"home") do %>
+	        	<span>Dashboard</span>
+	        <% end %>
+	    </li>
+	    <li>
+	    	<%= link_to({:controller => "activities", :action => "index"},class:"training") do %>
+	            <span>My training</span>
+	        <% end %>
+	    </li>
+	    <li>
+		     <%= link_to({:controller => "people", :action => "create"},class:"profile") do %>
+	            <span>My Profile</span>
+	         <% end %>
+	    </li>
+	</ul>
+</nav>
+<div id="content">
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+</div>
+</body>
+</html>

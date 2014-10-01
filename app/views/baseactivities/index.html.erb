@@ -1,0 +1,23 @@
+<h1>Listing baseactivities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @baseactivities.each do |baseactivity| %>
+      <tr>
+        <td><%= link_to 'Show', baseactivity %></td>
+        <td><%= link_to 'Edit', edit_baseactivity_path(baseactivity) %></td>
+        <td><%= link_to 'Destroy', baseactivity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Baseactivity', new_baseactivity_path %>

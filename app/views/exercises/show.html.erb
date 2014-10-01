@@ -1,0 +1,17 @@
+<p>
+  <strong>Summary:</strong>
+  <%= @exercise.summary %>
+</p>
+
+<p>
+  <strong>Repetitions:</strong>
+  <%= @exercise.repetitions %>
+</p>
+
+<p>
+  <strong>Entity:</strong>
+  <%= @exercise.entity %>
+</p>
+
+<%= link_to 'Edit', edit_exercise_path(@exercise) %> |
+<%= link_to 'Back', exercises_path %>
